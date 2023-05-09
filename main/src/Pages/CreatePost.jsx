@@ -3,22 +3,23 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
 import { Navigate } from 'react-router-dom';
 import Header from '../Header';
+import Editor from './Editor';
 
-const modules = {
-    toolbar: [
-        [{ 'header': [1, 2, false] }],
-        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-        ['link', 'image'],
-        ['clean']
-    ]
-};
-const formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image'
-];
+// const modules = {
+//     toolbar: [
+//         [{ 'header': [1, 2, false] }],
+//         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+//         [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+//         ['link', 'image'],
+//         ['clean']
+//     ]
+// };
+// const formats = [
+//     'header',
+//     'bold', 'italic', 'underline', 'strike', 'blockquote',
+//     'list', 'bullet', 'indent',
+//     'link', 'image'
+// ];
 export default function CreatePost() {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
@@ -63,12 +64,13 @@ export default function CreatePost() {
                 onChange={ev => setFiles(ev.target.files)}
             />
 
-            <ReactQuill
+            {/* <ReactQuill
                 value={content}
                 onChange={newValue => setContent(newValue)}
                 modules={modules}
                 formats={formats}
-                className='-mt-2 mb-20 lg:mb-1' />
+                className='-mt-2 mb-20 lg:mb-1' /> */}
+                <Editor value={content} onChange={setContent}/>
             <button className='lg:mt-14 bg-black text-white rounded-md '>Create Post</button>
         </form>
         </>
