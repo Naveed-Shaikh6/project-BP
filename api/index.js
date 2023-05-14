@@ -20,13 +20,15 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect('mongodb+srv://naveedshaikh8859:projectBP@cluster0.0frpn8n.mongodb.net/?retryWrites=true&w=majority')
+// mongoose.connect('mongodb+srv://naveedshaikh8859:any1234@cluster0.2fkztt0.mongodb.net/?retryWrites=true&w=majority')
 console.log('connected')
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { email,username, password } = req.body;
     try {
         const userDoc = await User.create(
             {
+                email,
                 username,
                 password: bcrypt.hashSync(password, salt),
             });
@@ -37,15 +39,15 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const userDoc = await User.findOne({ username });
+    const { email, password } = req.body;
+    const userDoc = await User.findOne({ email });
     const passsOk = bcrypt.compareSync(password, userDoc.password);
     if (passsOk) {
-        jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
-            if (err) throw err;
+        jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
+            if (err) console.log(err);
             res.cookie('token', token).json({
                 id: userDoc._id,
-                username,
+                email,
             })
         });
     } else {
@@ -141,8 +143,8 @@ app.get('/post', async (req, res) => {
     res.json(
         await Post.find()
             .populate('author', ['username'])
-            .sort({ createdAt: -1 })
-            .limit(20)
+            // .sort({ createdAt: -1 })
+            // .limit(20)
     );
 });
 
@@ -188,5 +190,14 @@ app.delete('/delete/:id',async (req, res, next) => {
   //   }
   //   return res.status(200).json({ postDoc });
   // });
+  app.get('/recent', async (req, res) => {
+    res.json(
+        await Post.find()
+            .populate('author', ['username'])
+            .sort({ createdAt: -1 })
+            .limit(20)
+    );
+});
+
 
 app.listen(8000);

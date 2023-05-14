@@ -18,12 +18,14 @@ export default function Editor({value,onChange}){
     ];
     return(
         <>
-             <ReactQuill
+             <ReactQuill 
                 value={value}
                 onChange={onChange} 
                 modules={modules}
                 formats={formats}
-                className='-mt-2 mb-20 lg:mb-1' />
+                // className='-mt-2 mb-20 lg:mb-1'
+                className="outline-transparent ml-2 mr-2  font-bold "
+                 />
         </>
     )
 }

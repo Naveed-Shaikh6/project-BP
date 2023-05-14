@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.smallimg{
+  height:200px;
+  width:100% !important;
+}
+.bs{
+  /* margin-top: 2px !important; */
+  padding: 20px !important;
+}
+.bigimg{
+  height:400px;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

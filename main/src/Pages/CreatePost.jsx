@@ -38,7 +38,7 @@ export default function CreatePost() {
         const response = await fetch('http://localhost:8000/post', {
             method: 'POST',
             body: data,
-            credentials:'include',
+            credentials: 'include',
         });
         if (response.ok) {
             setRedirect(true);
@@ -50,29 +50,40 @@ export default function CreatePost() {
     }
     return (
         <>
-        <Header/>
-        <form onSubmit={createNewPost} className="grid gap-4  justify-center mt-8" >
-            <input type="title" placeholder={'Title'} className='border outline-black'
-                value={title}
-                onChange={ev => setTitle(ev.target.value)} />
-            <input type='text' placeholder={'Summary'} className='border outline-black'
-                value={summary}
-                onChange={ev => setSummary(ev.target.value)}
-            />
-            <input type="file"
-                // value={files}
-                onChange={ev => setFiles(ev.target.files)}
-            />
+            <Header />
+            <div className='bg-red-100 p-3 outline  '>
+            <div className=' bg-gray-100 rounded-xl ml-20 mr-20   '>
+    
+                    <form onSubmit={createNewPost} className="grid gap-4  justify-center " >
+                        <input className="outline-transparent ml-2 mr-2  font-bold mt-4" type="title" placeholder= {'Title'} 
+                            value={title}
+                            onChange={ev => setTitle(ev.target.value)} />
+                        <input type='text' placeholder={'Summary'} 
+                        // className='border outline-black'
+                        className="outline-transparent ml-2 mr-2  font-bold"
+                            value={summary}
+                            onChange={ev => setSummary(ev.target.value)}
+                        />
+                        <input type="file"
+                            // value={files}
+                            className="outline-transparent ml-2 mr-2  font-bold "
+                            onChange={ev => setFiles(ev.target.files)}
+                        />
 
-            {/* <ReactQuill
-                value={content}
-                onChange={newValue => setContent(newValue)}
-                modules={modules}
-                formats={formats}
-                className='-mt-2 mb-20 lg:mb-1' /> */}
-                <Editor value={content} onChange={setContent}/>
-            <button className='lg:mt-14 bg-black text-white rounded-md '>Create Post</button>
-        </form>
+
+                        <Editor value={content} onChange={setContent} />
+                        <br/>
+                        {/* <input type='text'
+                placeholder='content'
+                value={content} onChange={setContent} /> */}
+                        <button
+                        //  className='lg:mt-8 mb-4 bg-black text-white rounded-md '
+                        className="outline-transparent ml-2 mr-2 bg-black font-bold  mb-4 text-white rounded-2xl"
+                         >Create Post</button>
+                    </form>
+               
+            </div>
+            </div>
         </>
     )
 }
