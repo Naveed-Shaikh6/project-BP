@@ -28,12 +28,7 @@ export default function RegisterPage() {
     }
     return (
         <>
-            {/* <form action="">
-             <h1>Register</h1>
-            <input type='text' placeholder="username"/>
-            <input type='password' placeholder="password"/>
-            <button>Register</button>
-           </form> */}
+          
             <Header />
 
             <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
@@ -44,9 +39,9 @@ export default function RegisterPage() {
                         <span className="pl-44 text-3xl">Register</span>
                         <div className="-space-y-px rounded-md">
                             <div>
-                                <input id="name" name="name" type="email"
+                                <input id="email" name="email" type="email" autoComplete="on"
                                     className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    placeholder="EmaiL"
+                                    placeholder="Email"
                                     value={email}
                                     onChange={ev => setEmail(ev.target.value)}
 
@@ -55,7 +50,7 @@ export default function RegisterPage() {
                             <br />
 
                             <div>
-                                <input id="name" name="name" type="name"
+                                <input id="name" name="name" type="name" autoComplete="on"
                                     className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     placeholder="Name"
                                     value={username}
@@ -64,15 +59,9 @@ export default function RegisterPage() {
                                 />
                             </div>
                             <br />
-                            {/* <div>
-                                <input id="email" name="email" type="email" 
-                                className="pl-2 relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
-                                placeholder="Email"
-                                />
-                            </div>
-                            <br /> */}
+                           
                             <div>
-                                <input id="password" name="password" type="password"
+                                <input id="password" name="password" type="password" autoComplete="on"
                                     className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     placeholder="Password"
                                     value={password}
@@ -81,7 +70,7 @@ export default function RegisterPage() {
                             </div>
                             <br />
                             <div>
-                                <input id="password" name="password" type="password"
+                                <input id="Cpassword" name="Cpassword" type="password" autoComplete="on"
                                     className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     placeholder="Confirm Password"
                                     value={ConfirmPassword}
@@ -90,14 +79,7 @@ export default function RegisterPage() {
                             </div>
                             <br />
 
-                            {/* <br /> */}
-                            {/* <div>
-                                <input id="number" name="number" type="text" 
-                                className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
-                                placeholder="Mobile Number" 
-                               
-                                />
-                            </div> */}
+                          
                         </div>
 
                         <div className="flex items-center justify-between">

@@ -5,10 +5,10 @@ import { UserContext } from "../UserContext"
 import Header from "../Header"
 export default function LoginPage() {
     // const [username, setUsername] = useState('')
-    const [email,setEmail] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
-    const {setUserInfo} = useContext(UserContext)
+    const { setUserInfo } = useContext(UserContext)
     async function login(ev) {
         ev.preventDefault();
         const response = await fetch('http://localhost:8000/login', {
@@ -32,13 +32,7 @@ export default function LoginPage() {
     }
     return (
         <>
-            {/* <form action="">
-           <h1>Login</h1>
-            <input type='text' placeholder="username"/>
-            <input type='password' placeholder="password"/>
-            <button>Login</button>
-           </form> */}
-           <Header/>
+            <Header />
 
             <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
                 <div className="w-full max-w-md space-y-8">
@@ -52,7 +46,7 @@ export default function LoginPage() {
                             <div>
 
                                 <input id="email-address" name="email" type="email"
-                                    className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="h-9 pl-2 relative block w-full rounded-t-md border-1 border-slate-900 outline-blue-600 sm:text-sm sm:leading-6"
                                     placeholder="Enter Email"
                                     value={email}
                                     onChange={ev => setEmail(ev.target.value)}
@@ -62,8 +56,8 @@ export default function LoginPage() {
                             <div>
 
 
-                                <input id="password" name="password" type="password"
-                                    className="pl-2 relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                <input id="password" name="password" type="password" autoComplete="on"
+                                    className="h-9 pl-2 relative block w-full rounded-b-md border-1 border-slate-950 outline-blue-600   sm:text-sm sm:leading-6"
                                     placeholder="Password"
                                     value={password}
                                     onChange={ev => setPassword(ev.target.value)}

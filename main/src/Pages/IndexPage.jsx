@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import Header from "../Header";
 import Post from "../post/Post";
 import Icon from "./Icon";
+import Slider from "./Slider";
 
 export default function IndexPage() {
     const [ posts,setPosts ] = useState([]);
@@ -16,6 +17,7 @@ export default function IndexPage() {
         <>
         <Header/>
         <Icon/>
+        {/* <Slider/> */}
           {posts.length > 0 && posts.map(post => (
             <Post {...post}/>
           ))}

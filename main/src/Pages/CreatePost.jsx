@@ -5,21 +5,6 @@ import { Navigate } from 'react-router-dom';
 import Header from '../Header';
 import Editor from './Editor';
 
-// const modules = {
-//     toolbar: [
-//         [{ 'header': [1, 2, false] }],
-//         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-//         [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-//         ['link', 'image'],
-//         ['clean']
-//     ]
-// };
-// const formats = [
-//     'header',
-//     'bold', 'italic', 'underline', 'strike', 'blockquote',
-//     'list', 'bullet', 'indent',
-//     'link', 'image'
-// ];
 export default function CreatePost() {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
@@ -34,7 +19,6 @@ export default function CreatePost() {
         data.set('content', content)
         data.set('file', files[0])
         ev.preventDefault();
-        // console.log(files)
         const response = await fetch('http://localhost:8000/post', {
             method: 'POST',
             body: data,
@@ -53,13 +37,12 @@ export default function CreatePost() {
             <Header />
             <div className='bg-red-100 p-3 outline  '>
             <div className=' bg-gray-100 rounded-xl ml-20 mr-20   '>
-    
                     <form onSubmit={createNewPost} className="grid gap-4  justify-center " >
                         <input className="outline-transparent ml-2 mr-2  font-bold mt-4" type="title" placeholder= {'Title'} 
                             value={title}
                             onChange={ev => setTitle(ev.target.value)} />
                         <input type='text' placeholder={'Summary'} 
-                        // className='border outline-black'
+                       
                         className="outline-transparent ml-2 mr-2  font-bold"
                             value={summary}
                             onChange={ev => setSummary(ev.target.value)}
@@ -69,15 +52,9 @@ export default function CreatePost() {
                             className="outline-transparent ml-2 mr-2  font-bold "
                             onChange={ev => setFiles(ev.target.files)}
                         />
-
-
                         <Editor value={content} onChange={setContent} />
                         <br/>
-                        {/* <input type='text'
-                placeholder='content'
-                value={content} onChange={setContent} /> */}
                         <button
-                        //  className='lg:mt-8 mb-4 bg-black text-white rounded-md '
                         className="outline-transparent ml-2 mr-2 bg-black font-bold  mb-4 text-white rounded-2xl"
                          >Create Post</button>
                     </form>

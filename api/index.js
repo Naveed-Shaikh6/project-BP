@@ -44,7 +44,7 @@ app.post('/login', async (req, res) => {
     const passsOk = bcrypt.compareSync(password, userDoc.password);
     if (passsOk) {
         jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
-            if (err) console.log(err);
+            if (err) throw err;
             res.cookie('token', token).json({
                 id: userDoc._id,
                 email,
@@ -198,6 +198,5 @@ app.delete('/delete/:id',async (req, res, next) => {
             .limit(20)
     );
 });
-
 
 app.listen(8000);
