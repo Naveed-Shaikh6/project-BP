@@ -63,9 +63,9 @@ export default function PostPage() {
                 <img className="flex border  mb-2 rounded-xl" src={`http://localhost:8000/${postInfo.cover}`} />
             </div>
             {/* <div className="font-medium mt-2  ml-3" dangerouslySetInnerHTML={{__html:postInfo.content}} /> */}
-            <div className="font-medium m-4">{postInfo.content}</div>
+            <div className="font-medium  ml-14 mr-14 mt-4 ">{postInfo.content}</div>
         </div>
-        <div className="m-4 font-black">
+        <div className="mt-4 ml-16  font-black">
           <h1>Blog Details :</h1>
           <p>Blog Created Date And Time : {formatISO9075(new Date(postInfo.createdAt))}</p>
           <p className="-mt-1">Author Name : {postInfo.author.username}</p>

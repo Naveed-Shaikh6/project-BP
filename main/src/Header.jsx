@@ -42,8 +42,8 @@ export default function Header() {
                 {!email && (
                     <>
                         <div className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 bg-slate-800 text-white mr-4'>
-                            <Link to={'/register'}>Register</Link>|
-                            <Link to={'/login'}>Login</Link>
+                            <Link className=" hover:text-white" to={'/register'}>Register</Link>|
+                            <Link className=" hover:text-white" to={'/login'}>Login</Link>
                         </div>
                     </>
                 )}
