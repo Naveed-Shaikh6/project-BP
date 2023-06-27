@@ -61,7 +61,7 @@ export default function PostPage() {
           {/* <div className="font-medium mt-2  ml-3" dangerouslySetInnerHTML={{__html:postInfo.content}} /> */}
           <p className="font-medium  ml-14 mr-14 mt-4 ">{postInfo.content}</p>
         </div>
-        <Advertisment/>
+         <Advertisment/>
         <div className="mt-4 ml-14  font-black">
           <h1>Blog Details :</h1>
           <p>Blog Created Date And Time : {formatISO9075(new Date(postInfo.createdAt))}</p>
@@ -69,7 +69,6 @@ export default function PostPage() {
 
         </div>
       </div>
-     
       <Footer/>
     </>
     
