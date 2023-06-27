@@ -9,6 +9,7 @@ import { UserContextProvider } from './UserContext';
 import PostPage from './Pages/PostPage';
 import RecentBlog from './Pages/RecentBlog';
 import CreateBlog from './Pages/CreateBlog';
+import AboutPage from './Pages/AboutPage';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path='/post/:id' element={<PostPage/>} />
       <Route path='/recent' element={<RecentBlog/>} /> 
       <Route path='/createblog' element={<CreateBlog/>} />
+      <Route path='/about' element={<AboutPage/>} />
     </Routes>
   </UserContextProvider>
   )

@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '../Header';
 import { Link } from 'react-router-dom';
 import { UserContext } from "../UserContext";
+import Footer from './Footer';
 
 function CreateBlog() {
   const [title, setTitle] = useState('');
@@ -21,7 +22,6 @@ function CreateBlog() {
     data.set('content', content)
     data.set('file', files[0])
     ev.preventDefault();
-    // console.log(files)
     const response = await fetch('http://localhost:8000/post', {
       method: 'POST',
       body: data,
@@ -31,8 +31,6 @@ function CreateBlog() {
       setRedirect(true);
     }
   }
-
-
 
   if (redirect) {
     return <Navigate to={'/'} />
@@ -77,19 +75,21 @@ function CreateBlog() {
           </div>
         </div>
       )}
-      
+
       {!userInfo.id && (
         <>
-       <div class="container mx-auto p-4 bg-gray-200 rounded-2xl ">
-    <h1 class="text-4xl   text-center mb-8 ">You have to login first before creating a blog</h1>
-    <div class="flex justify-center">
-      <Link to={'/login'} class="bg-blue-500  text-white font-bold py-2 px-4 rounded">
-        Back to Login
-      </Link>
-    </div>
-  </div>
+          <div class="container mx-auto p-4 bg-gray-200 rounded-2xl ">
+            <h1 class="text-4xl   text-center mb-8 ">You have to login first before creating a blog</h1>
+            <div class="flex justify-center">
+              <Link to={'/login'} class="bg-blue-500  text-white font-bold py-2 px-4 rounded">
+                Back to Login
+              </Link>
+            </div>
+          </div>
         </>
       )}
+
+      <Footer/>
     </>
 
   )
